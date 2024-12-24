@@ -26,7 +26,7 @@ import { MultiSelect } from "../components/multi-select.tsx";
 import Navbar from "../components/Navbar";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "../components/ui/calendar";
 import coursesData from "../assets/courseData.json";
 const courseKeys = Object.keys(coursesData) as Array<keyof typeof coursesData>;
 
@@ -165,12 +165,12 @@ const RegisterForm = () => {
   };
 
   // Fetch and aggregate states for multiple selected countries
-  const fetchStates = async (countryCodes: string[]) => {
-    const allStates = await Promise.all(
-      countryCodes.map((code) => fetchStatesOfCountry(code))
-    );
-    setStates(allStates.flat());
-  };
+  // const fetchStates = async (countryCodes: string[]) => {
+  //   const allStates = await Promise.all(
+  //     countryCodes.map((code) => fetchStatesOfCountry(code))
+  //   );
+  //   setStates(allStates.flat());
+  // };
 
   // Fetch states when countries are selected
   const handleCountryChange = async (selectedCountries: string[]) => {
@@ -594,7 +594,7 @@ const RegisterForm = () => {
                         states.find((state) => state.code === code)
                       );
                       field.onChange(selected);
-                      handleStateChange(selectedStates || []); // Fetch cities based on selected states
+                      handleStateChange(selectedStates || []);
                     }}
                     placeholder="Select preferred states"
                     disabled={states.length === 0}

@@ -5,7 +5,7 @@ import { CalendarIcon } from "lucide-react";
 import { Calendar } from "../../components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "../../components/ui/popover";
 import { cn } from "../../lib/utils";
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../components/ui/form";
+import { FormLabel } from "../../components/ui/form";
 
 const Projects = ({ form }) => {
   const { control, setValue, watch } = form;
