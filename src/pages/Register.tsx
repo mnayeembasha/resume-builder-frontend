@@ -5,6 +5,7 @@ import { z } from "zod";
 import axios, { AxiosRequestConfig } from "axios";
 import { Button } from "../components/ui/button";
 const CSC_API_KEY = import.meta.env.VITE_CSC_API_KEY;
+console.log("API Key:", CSC_API_KEY);
 import {
   Form,
   FormControl,
