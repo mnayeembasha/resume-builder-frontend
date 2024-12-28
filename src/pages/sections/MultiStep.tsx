@@ -17,6 +17,7 @@ import DomainKnowledge from "./DomainKnowledge";
 import Achievements from "./Achievements";
 import axios from "axios";
 import { BACKEND_URL } from "../../config";
+import Education from "./Education";
 const MultiStep = () => {
   const form:UseFormReturn<FormFields> = useForm<FormFields>({
     resolver: zodResolver(formSchema),
@@ -32,6 +33,7 @@ const MultiStep = () => {
         personalInformation,
         basicInformation,
         summary,
+        education,
         certifications,
         internships,
         projects,
@@ -66,6 +68,7 @@ const MultiStep = () => {
         summary: {
           summary: summary.summary,
         },
+        education:education,
         certifications: certifications || [],
         internships: internships || [],
         projects: projects || [],
@@ -115,6 +118,8 @@ const MultiStep = () => {
             <DomainKnowledge form={form}/>
             <hr className="my-3"/>
             <Achievements form={form}/>
+            <hr className="my-3"/>
+            <Education form={form}/>
 
             <div className="flex"><Button type="submit">Submit</Button></div>
           </form>

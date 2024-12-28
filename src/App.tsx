@@ -3,6 +3,7 @@ import Home from './pages/home/Home';
 import RegisterForm from './pages/Register';
 import { ThemeProvider } from './components/ui/theme-provider';
 import MultiStepForm from './pages/sections/MultiStep';
+import EditAndPreview from './pages/edit-and-preview/EditAndPreview';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route index element={<Home/>} />
         <Route path="register" element={<RegisterForm/>} />
         <Route path="resume-details" element={<MultiStepForm/>} />
+        <Route path="edit-and-preview" element={<EditAndPreview/>} />
       </Route>
     </Routes>
   </Router>

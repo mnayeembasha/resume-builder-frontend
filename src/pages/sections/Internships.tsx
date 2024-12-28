@@ -163,7 +163,7 @@ const Internships = ({ form }) => {
             </FormItem>
           )}
         />
-            {/*Ongoing Internshio */}
+            {/*Ongoing Internship */}
             <FormField
   control={form.control}
   name={`internships.${index}.ongoing`}

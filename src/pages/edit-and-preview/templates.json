@@ -1,0 +1,17 @@
+[
+    {
+      "id": "minimal",
+      "name": "Minimal",
+      "thumbnail": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&auto=format&fit=crop&q=60"
+    },
+    {
+      "id": "professional",
+      "name": "Professional",
+      "thumbnail": "https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=800&auto=format&fit=crop&q=60"
+    },
+    {
+      "id": "creative",
+      "name": "Creative",
+      "thumbnail": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&auto=format&fit=crop&q=60"
+    }
+]
