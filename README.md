@@ -45,36 +45,51 @@ cd resume-builder-frontend
 2. Install Dependencies
 Ensure you have Node.js and npm installed. Then, run:
 
-```npm install```
+```bash
+npm install
+```
+
 3. Configure Environment Variables
 Create a .env file in the root directory by copying .env.example:
 
-```cp .env.example .env```
+```bash
+cp .env.example .env
+```
+
 Fill in the necessary environment variables (e.g., API keys).
 
 4. Run the Application
 Start the development server:
 
-```npm start```
+```bash
+npm start
+```
 The app will be available at http://localhost:3000.
 
 # Contributing
 We welcome contributions! Please follow these steps:
 
-Fork the repository.
-Create a new branch:
-```git checkout -b feature/your-feature-name```
-Commit your changes:
-```git commit -m "Add your message here"```
-Push to your branch:
-```git push origin feature/your-feature-name```
-Submit a pull request.
+- Fork the repository.
+
+- Create a new branch:
+```bash
+git checkout -b feature/your-feature-name
+```
+- Commit your changes:
+```bash
+git commit -m "Add your message here"
+```
+- Push to your branch:
+```bash
+git push origin feature/your-feature-name
+```
+- Submit a pull request.
 # License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 # Contact
 For any questions or feedback, feel free to reach out to:
 
-Mnayeem Basha
-Manikanta
+Mnayeem Basha[@mnayeembasha]
+Manikanta[@mani-353]
 Feel free to add or modify sections based on specific project needs! Let me know if you want further refinements. 😊

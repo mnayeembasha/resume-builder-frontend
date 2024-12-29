@@ -41,14 +41,6 @@ export default function TemplateOneForm({ data, onChange }: ResumeFormProps) {
         console.log("Updated AI Summaries:", aiGeneratedSummaries);
     }, [aiGeneratedSummaries]);
 
-
-    const onSummaryClick = (summary: string) => {
-        onChange({
-            ...data,
-            summary: { summary },
-        });
-    };
-
     const onSave = () => {
         toast.success("Summary saved successfully!");
     };
