@@ -1,50 +1,80 @@
-# React + TypeScript + Vite
+# Resume Builder Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Resume Builder Frontend, an innovative tool designed to simplify and enhance your resume creation process. With cutting-edge AI integrations, our platform helps users generate impactful resumes that stand out in the competitive job market.
 
-Currently, two official plugins are available:
+# Key Features
+- AI-Powered Resume Summary:
+Generate personalized and professional summaries for your resumes with AI. No more struggling to describe yourself – our tool does it for you!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ATS (Applicant Tracking System) Score Evaluation:
+Evaluate your resume's compatibility with ATS systems using our built-in analyzer. Understand how well your resume aligns with job postings.
 
-## Expanding the ESLint configuration
+- AI-Based ATS Score Improvements:
+Get actionable suggestions powered by AI to improve your resume's ATS score, ensuring it passes through screening systems effortlessly.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Project Structure
+Here's an overview of the repository structure:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+resume-builder-frontend/
+│
+├── public/                 # Public assets such as images and static files
+│   └── favicon.ico         # Favicon for the app
+│
+├── src/                    # Main source code for the application
+│   ├── components/         # Reusable UI components
+│   ├── pages/              # Application pages and routing
+│   ├── services/           # API calls and external service integrations
+│   ├── utils/              # Utility functions
+│   └── styles/             # Global and component-specific styles
+│
+├── .env.example            # Environment variable template
+├── package.json            # Project dependencies and scripts
+├── README.md               # Documentation for the project
+└── tsconfig.json           # TypeScript configuration
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+# Getting Started
+Follow these steps to clone and run the project locally:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+1. Clone the Repository
+```bash
+git clone https://github.com/mnayeembasha/resume-builder-frontend.git
+cd resume-builder-frontend
 ```
+2. Install Dependencies
+Ensure you have Node.js and npm installed. Then, run:
+
+```npm install```
+3. Configure Environment Variables
+Create a .env file in the root directory by copying .env.example:
+
+```cp .env.example .env```
+Fill in the necessary environment variables (e.g., API keys).
+
+4. Run the Application
+Start the development server:
+
+```npm start```
+The app will be available at http://localhost:3000.
+
+# Contributing
+We welcome contributions! Please follow these steps:
+
+Fork the repository.
+Create a new branch:
+```git checkout -b feature/your-feature-name```
+Commit your changes:
+```git commit -m "Add your message here"```
+Push to your branch:
+```git push origin feature/your-feature-name```
+Submit a pull request.
+# License
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+# Contact
+For any questions or feedback, feel free to reach out to:
+
+Mnayeem Basha
+Manikanta
+Feel free to add or modify sections based on specific project needs! Let me know if you want further refinements. 😊

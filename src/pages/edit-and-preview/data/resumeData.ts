@@ -1,3 +1,5 @@
+//sample data which is store in the mongodb database
+
 export const initialResumeData = {
   personalInformation: {
     photo: "https://as1.ftcdn.net/v2/jpg/07/02/98/70/1000_F_702987027_NnBUPLoKDppCJl0XJJJRm15E1sQoy9I1.jpg"
