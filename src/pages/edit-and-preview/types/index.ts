@@ -45,6 +45,7 @@ export interface Address {
     attachments?: string;
   }
   export interface EducationSection{
+    state: string;
     instistutionName:string,
     city:string;
     startDate:Date;

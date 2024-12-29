@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import axios, { AxiosRequestConfig } from "axios";
 import { Button } from "../components/ui/button";
+import { useNavigate } from "react-router-dom";
 const CSC_API_KEY = import.meta.env.VITE_CSC_API_KEY;
 import {
   Form,
@@ -92,6 +93,13 @@ const RegisterForm = () => {
   const [cities, setCities] = useState<City[]>([]);
 
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const handleFormSubmit = (data: any) => {
+    console.log("Form Data:", data);
+    navigate("/resume-details");``
+  };
 
   const fetchCountries = async () => {
     const config: AxiosRequestConfig = {
@@ -253,53 +261,53 @@ const RegisterForm = () => {
       return;
     }
 
-    const allSelectedCountries = jobPreferredCountries.map((countryCode)=>{
-      return (countries.find((country)=>{
-        console.log("state.code=",country.code);
-        console.log("stateCode=",countryCode);
-        return country.code===countryCode
+    const allSelectedCountries = jobPreferredCountries.map((countryCode) => {
+      return (countries.find((country) => {
+        console.log("state.code=", country.code);
+        console.log("stateCode=", countryCode);
+        return country.code === countryCode
       }))?.name;
     })
-    const allSelectedStates = jobPreferredStates.map((stateCode)=>{
-      return (states.find((state)=>{
-        console.log("state.code=",state.code);
-        console.log("stateCode=",stateCode);
-        return state.code===stateCode
+    const allSelectedStates = jobPreferredStates.map((stateCode) => {
+      return (states.find((state) => {
+        console.log("state.code=", state.code);
+        console.log("stateCode=", stateCode);
+        return state.code === stateCode
       }))?.name;
     })
 
 
-     try {
+    try {
 
-       const response = await axios.post(
-         `${BACKEND_URL}/api/v1/user/register`,
-         {
-           firstName,
-           lastName,
-           collegeName,
-           specialization,
-           course,
-           branch,
-           passOutYear: passOutYearInt,
-           cgpaOrPercentage: cgpaOrPercentageInt,
-           gender,
-           githubProfile,
-           linkedInProfile,
-           jobPreferredCountries:allSelectedCountries,
-           jobPreferredStates:allSelectedStates,
-           jobPreferredCities,
-           dateOfBirth
-         },
-         {
-           withCredentials: true,
-         }
-       );
-       console.log(response.data);
-       alert("Form submitted successfully!");
-     } catch (error) {
-       console.error("Error submitting form:", error);
-       alert("Failed to submit the form. Please try again.");
-     }
+      const response = await axios.post(
+        `${BACKEND_URL}/api/v1/user/register`,
+        {
+          firstName,
+          lastName,
+          collegeName,
+          specialization,
+          course,
+          branch,
+          passOutYear: passOutYearInt,
+          cgpaOrPercentage: cgpaOrPercentageInt,
+          gender,
+          githubProfile,
+          linkedInProfile,
+          jobPreferredCountries: allSelectedCountries,
+          jobPreferredStates: allSelectedStates,
+          jobPreferredCities,
+          dateOfBirth
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      console.log(response.data);
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit the form. Please try again.");
+    }
   }
 
   return (
@@ -312,7 +320,7 @@ const RegisterForm = () => {
         </div>
         <Form {...form}>
           <form
-            onSubmit={form.handleSubmit(onSubmit)}
+            onSubmit={form.handleSubmit(handleFormSubmit)}
             className="space-y-8 w-full max-w-lg"
           >
             {/* First Name */}
@@ -633,50 +641,50 @@ const RegisterForm = () => {
 
             {/* Date of Birth */}
             <FormField
-  control={form.control}
-  name="dateOfBirth"
-  render={({ field }) => (
-    <FormItem className="flex flex-col">
-      <FormLabel>Date of birth</FormLabel>
-      <Popover>
-        <PopoverTrigger asChild>
-          <FormControl>
-            <Button
-              variant={"outline"}
-              className={cn(
-                "w-[240px] pl-3 text-left font-normal",
-                !field.value && "text-muted-foreground"
+              control={form.control}
+              name="dateOfBirth"
+              render={({ field }) => (
+                <FormItem className="flex flex-col">
+                  <FormLabel>Date of birth</FormLabel>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant={"outline"}
+                          className={cn(
+                            "w-[240px] pl-3 text-left font-normal",
+                            !field.value && "text-muted-foreground"
+                          )}
+                        >
+                          {field.value ? (
+                            format(field.value, "PPP")
+                          ) : (
+                            <span>Pick a date</span>
+                          )}
+                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={field.value || new Date("2004-01-01")} // Default to 2004 if no value
+                        onSelect={field.onChange}
+                        disabled={(date) =>
+                          date > new Date() || date < new Date("1900-01-01")
+                        }
+                        defaultMonth={field.value || new Date("2004-01-01")} // Ensure initial view is 2004
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                  <FormDescription>
+                    Your date of birth is used to calculate your age.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
               )}
-            >
-              {field.value ? (
-                format(field.value, "PPP")
-              ) : (
-                <span>Pick a date</span>
-              )}
-              <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-            </Button>
-          </FormControl>
-        </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
-          <Calendar
-            mode="single"
-            selected={field.value || new Date("2004-01-01")} // Default to 2004 if no value
-            onSelect={field.onChange}
-            disabled={(date) =>
-              date > new Date() || date < new Date("1900-01-01")
-            }
-            defaultMonth={field.value || new Date("2004-01-01")} // Ensure initial view is 2004
-            initialFocus
-          />
-        </PopoverContent>
-      </Popover>
-      <FormDescription>
-        Your date of birth is used to calculate your age.
-      </FormDescription>
-      <FormMessage />
-    </FormItem>
-  )}
-/>
+            />
             {/* Submit Button */}
             <Button type="submit">Submit</Button>
           </form>

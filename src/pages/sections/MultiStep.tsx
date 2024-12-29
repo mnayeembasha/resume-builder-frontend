@@ -1,31 +1,34 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm,UseFormReturn } from "react-hook-form";
+import { useForm, UseFormReturn } from "react-hook-form";
 import { Button } from "../../components/ui/button";
 import { Form } from "../../components/ui/form";
-import {z} from "zod";
+import { z } from "zod";
 import PersonalInformation from "./PersonalInformation";
 import { formSchema } from "./formSchema";
 import Summary from "./Summary";
 import Navbar from "../../components/Navbar";
 import BasicInformation from "./BasicInformation";
-import { FormFields,defaultValues } from "./formSchema";
+import { FormFields, defaultValues } from "./formSchema";
 import Certifications from "./Certifications";
 import Internships from "./Internships";
 import Projects from "./Projects";
-import  Skills  from "./Skills";
+import Skills from "./Skills";
 import DomainKnowledge from "./DomainKnowledge";
 import Achievements from "./Achievements";
 import axios from "axios";
 import { BACKEND_URL } from "../../config";
 import Education from "./Education";
+import { useNavigate } from "react-router-dom";
 const MultiStep = () => {
-  const form:UseFormReturn<FormFields> = useForm<FormFields>({
+  const form: UseFormReturn<FormFields> = useForm<FormFields>({
     resolver: zodResolver(formSchema),
     defaultValues: defaultValues,
   });
+  const navigate = useNavigate();
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log("Form submitted...");
+
     console.log(values);
 
     try {
@@ -41,6 +44,8 @@ const MultiStep = () => {
         domainKnowledge,
         achievements,
       } = values;
+
+      localStorage.setItem("email", basicInformation.email);
 
       const formattedAddress = {
         addressLine: basicInformation.address.addressLine || "",
@@ -68,7 +73,7 @@ const MultiStep = () => {
         summary: {
           summary: summary.summary,
         },
-        education:education,
+        education: education,
         certifications: certifications || [],
         internships: internships || [],
         projects: projects || [],
@@ -84,6 +89,7 @@ const MultiStep = () => {
 
       console.log("Backend response:", response.data);
       alert("Form submitted successfully!");
+      navigate("/edit-and-preview");
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Failed to submit the form. Please try again.");
@@ -104,30 +110,30 @@ const MultiStep = () => {
             className="space-y-8 w-full max-w-lg"
           >
             <PersonalInformation form={form} name="personalInformation.photo" />
-            <BasicInformation form={form}/>
+            <BasicInformation form={form} />
             <Summary form={form} name="summary.summary" />
-            <hr className="my-3"/>
-            <Certifications form={form}/>
-            <hr className="my-3"/>
-            <Internships form={form}/>
-            <hr className="my-3"/>
-            <Projects form={form}/>
-            <hr className="my-3"/>
-            <Skills form={form}/>
-            <hr className="my-3"/>
-            <DomainKnowledge form={form}/>
-            <hr className="my-3"/>
-            <Achievements form={form}/>
-            <hr className="my-3"/>
-            <Education form={form}/>
+            <hr className="my-3" />
+            <Certifications form={form} />
+            <hr className="my-3" />
+            <Internships form={form} />
+            <hr className="my-3" />
+            <Projects form={form} />
+            <hr className="my-3" />
+            <Skills form={form} />
+            <hr className="my-3" />
+            <DomainKnowledge form={form} />
+            <hr className="my-3" />
+            <Achievements form={form} />
+            <hr className="my-3" />
+            <Education form={form} />
 
             <div className="flex"><Button type="submit">Submit</Button></div>
           </form>
         </Form>
       </div>
       {Object.keys(form.formState.errors).length > 0 && (
-          <pre>{JSON.stringify(form.formState.errors, null, 2)}</pre>
-        )}
+        <pre>{JSON.stringify(form.formState.errors, null, 2)}</pre>
+      )}
     </div>
 
   );
