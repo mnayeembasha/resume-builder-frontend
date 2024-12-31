@@ -299,9 +299,13 @@ const RegisterForm = () => {
           dateOfBirth
         },
         {
-          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json"
+          },
+          withCredentials: true 
         }
       );
+
       console.log(response.data);
       alert("Form submitted successfully!");
     } catch (error) {
