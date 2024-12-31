@@ -10,7 +10,8 @@ interface TemplateSelectorProps {
 
 export function TemplateSelector({ templates, selectedTemplate, onSelect }: TemplateSelectorProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+    // grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6
+    <div className="flex gap-6 p-6">
       {templates.map((template) => (
         <motion.div
           key={template.id}
@@ -25,7 +26,7 @@ export function TemplateSelector({ templates, selectedTemplate, onSelect }: Temp
           <img
             src={template.thumbnail}
             alt={template.name}
-            className="w-full h-64 object-cover"
+            className="w-[200px] h-64 object-cover"
           />
           <div className="p-4 bg-white">
             <h3 className="text-lg font-semibold text-gray-800">{template.name}</h3>

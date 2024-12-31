@@ -4,16 +4,19 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="text-blue-500">
+    <div className="bg-gradient-to-r from-blue-100 via-blue-300 to-blue-500 min-h-screen flex flex-col">
       <Navbar />
-      <main className="min-h-[80vh] flex flex-col justify-center items-center">
+      <main className="flex-grow flex flex-col justify-center items-center text-center">
         <div>
-          <div className="font-medium bg-gradient-to-r from-blue-400 to-blue-700 text-transparent bg-clip-text text-4xl text-center">
-            Build Professional <span className="">Resumes</span> Effortlessly
-          </div>
-          <div className="my-8 flex justify-center">
+          <h1 className="text-4xl font-bold text-white">
+            Build Professional Resumes Effortlessly
+          </h1>
+          <p className="mt-4 text-lg text-white/80">
+            Your one-stop solution for creating and customizing resumes!
+          </p>
+          <div className="mt-6">
             <Link to="/register">
-              <Button className="w-[11rem] h-[3rem] bg-gradient-to-b from-blue-300 to-blue-700 text-lg">
+              <Button className="bg-gradient-to-r from-blue-400 to-blue-600 text-white py-2 px-6 rounded-lg text-lg shadow-lg hover:scale-105 transition-transform">
                 Get Started
               </Button>
             </Link>

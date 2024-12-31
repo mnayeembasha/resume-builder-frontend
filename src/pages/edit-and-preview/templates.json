@@ -1,17 +1,16 @@
 [
-    {
-      "id": "minimal",
-      "name": "Minimal",
-      "thumbnail": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&auto=format&fit=crop&q=60"
-    },
-    {
-      "id": "professional",
-      "name": "Professional",
-      "thumbnail": "https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=800&auto=format&fit=crop&q=60"
-    },
-    {
-      "id": "creative",
-      "name": "Creative",
-      "thumbnail": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&auto=format&fit=crop&q=60"
-    }
+  {
+    "id": "minimal",
+    "name": "Template 1",
+    "thumbnail": "https://res.cloudinary.com/de05bfedt/image/upload/v1735416234/v45j7xt88ypdom8hpnfq.png",
+    "formComponent": "TemplateOneForm",
+    "previewComponent": "TemplateOnePreview"
+  },
+  {
+    "id": "professional",
+    "name": "Template 2",
+    "thumbnail": "https://res.cloudinary.com/de05bfedt/image/upload/v1735416693/je0vh5amcpwoz67tcsdf.png",
+    "formComponent": "TemplateTwoForm",
+    "previewComponent": "TemplateTwoPreview"
+  }
 ]
