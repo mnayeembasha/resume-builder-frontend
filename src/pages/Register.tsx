@@ -98,7 +98,7 @@ const RegisterForm = () => {
 
   const handleFormSubmit = (data: any) => {
     console.log("Form Data:", data);
-    navigate("/resume-details");``
+    navigate("/resume-details");
   };
 
   const fetchCountries = async () => {
@@ -302,7 +302,7 @@ const RegisterForm = () => {
           headers: {
             "Content-Type": "application/json"
           },
-          withCredentials: true 
+          withCredentials: true
         }
       );
 

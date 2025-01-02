@@ -84,6 +84,9 @@ const MultiStep = () => {
 
       // Sending data to the backend
       const response = await axios.post(`${BACKEND_URL}/api/v1/user/resume-details`, payload, {
+        headers:{
+          "Content-Type":"application/json"
+        },
         withCredentials: true,
       });
 
